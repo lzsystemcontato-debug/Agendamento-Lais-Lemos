@@ -4,7 +4,12 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
+
+//  Permite que o GitHub Pages acesse o servidor
+app.use(cors({
+  origin: 'https://lzsystemcontato-debug.github.io'
+}));
+
 app.use(bodyParser.json());
 
 const caminhoArquivo = './agendamentos.json';
